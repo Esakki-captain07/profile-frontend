@@ -32,7 +32,7 @@ function Projects() {
 
     return (
         <>
-            <h1 id='projects' className='about-education'>Project Details</h1>
+            <h1 id='projects' className='about-education heading'>Project Details</h1>
             <div className="project-wrapper">
                 <div className="project-box container">
                     {projects && projects.length > 0 ? (
@@ -50,7 +50,7 @@ function Projects() {
                                     />
                                 </div>
                                 <div style={{ marginTop: '10px' }}>
-                                    <h5 className='project-title'>{project.title}</h5>
+                                    <h5 className='project-title heading'>{project.title}</h5>
                                     <p className='project-sub'>{project.subHeading}</p>
                                 </div>
                             </div>

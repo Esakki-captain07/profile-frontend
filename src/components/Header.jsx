@@ -12,7 +12,7 @@ function Header() {
       <div className="container about-content">
         <div className="container left-wrapper">
           <p className="header-text">Hi, My Name is</p>
-          <h1 className="header-name">Esakki Raj</h1>
+          <h1 className="header-name heading">Esakki Raj</h1>
           <h1 className="header-dec">I Build Things for The Web.</h1>
           <p className="header-content">
           I’m a MERN stack developer dedicated to crafting dynamic and user-friendly web applications.At present, 

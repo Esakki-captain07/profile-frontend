@@ -2,23 +2,42 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
+import { toast } from 'react-toastify';
+
 
 function Contact() {
   let [name,setName] = useState("")
   let [email,setEmail] = useState("")
   let [message,setMessage] = useState("")
 
-  const handleSubmit = async(e)=>{
-      e.preventDefault()
-      const response = await axios.post('https://protfolifo-backend.onrender.com/user/sent', {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    await toast.promise(
+      axios.post('https://protfolifo-backend.onrender.com/user/sent', {
         name,
         email,
         message
-      });
-    console.log(response.data.message)
-    alert(response.data.message)
-
-  }
+      }),
+      {
+        loading: 'Sending your message...',
+        success: 'Your message has been sent successfully!',
+        error: 'Failed to send the message. Please try again.',
+      }
+    )
+    .then(response => {
+      console.log(response.data.message);
+  
+      setName("");
+      setEmail("");
+      setMessage("");
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  };
+  
+  
 
 
 
@@ -27,7 +46,7 @@ function Contact() {
       <div id='contact' className="container contact-box">
         <div className="contact-left">
           <div style={{ padding: '20px' }}>
-            <h3 className='contact-title'>Contact Me</h3>
+            <h3 className='contact-title heading'>Contact Me</h3>
             <div className="mt-10 ml-7 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">
 
               <div className="sm:col-span-4">
@@ -81,7 +100,7 @@ function Contact() {
         </div>
 
         <div className="contact-right">
-          <h3 className='contact-deatils'>Contact Information</h3>
+          <h3 className='contact-deatils heading'>Contact Information</h3>
           <div className="deatils">
             <h4 className='mt-10'><b>Location : </b>Sankaran Kovil</h4>
             <h4 className='mt-10'><b>Ph : </b>6383436841</h4>

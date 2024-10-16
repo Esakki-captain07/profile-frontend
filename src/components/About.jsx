@@ -6,7 +6,7 @@ function About() {
   return<>
   <div id='about' className="container about-me">
     <div className="about-left">
-        <h2 className='about-name'>About Me</h2>
+        <h2 className='about-name heading'>About Me</h2>
         <div className='about-text'>
             <ul style={{marginBottom:'20px'}} className='about-des'>
                 <li>Hello! My name is Esakki Raj, and I’m a MERN stack developer who loves building things that make the web a better place.
